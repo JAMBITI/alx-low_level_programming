@@ -8,8 +8,8 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int sum1;
-	int sum2;
+	int sum1,
+	int sum2,
 	int x;
 
 	sum1 = 0;
