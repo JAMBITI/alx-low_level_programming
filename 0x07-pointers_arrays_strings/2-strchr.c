@@ -1,4 +1,4 @@
-#inlude "main.h"
+#include "main.h"
 /**
  * _strchr: the function returns a pointer to the first occ..
  * @s: input
