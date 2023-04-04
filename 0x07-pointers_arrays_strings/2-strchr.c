@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _strchr: the function returns a pointer to the first occ..
+ * _strchr - the function returns a pointer to the first occ
  * @s: input
  * @c: input
  * Return: Always 0
