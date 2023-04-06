@@ -7,6 +7,7 @@
  */
 int _sqrt_recursion(int n);
 
+int main(void)
 {
 	int num = 144;
 	int result = _sqrt_recursion(num);
