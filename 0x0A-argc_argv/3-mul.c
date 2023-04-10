@@ -53,18 +53,21 @@ int _atoi(char *s)
  * @argv: vect arg
  * Return: 0 if true and 1 if false
  */
-
 int main(int argc, char *argv[])
 {
-	int x, y;
+	int result, num1, num2;
 
-	if (argc == 1)
+	if (argc < 3 || argc > 3)
 	{
-		x = atoi(argv[1]);
-		y = atoi(argv[2]);
-		printf("%d\n", x * y);
-		return (0);
+		printf("Error\n");
+		return (1);
 	}
-	printf("Error\n");
-	return (1);
+
+	num1 = _atoi(argv[1]);
+	num2 = _atoi(argv[2]);
+	result = num1 * num2;
+
+	printf("%d\n", result);
+
+	return (0);
 }
