@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
 
 	if (argc == 1)
 	{
-		x = atoi(argv[1]);
-		y = atoi(argv[2]);
+		x = _atoi(argv[1]);
+		y = _atoi(argv[2]);
 		printf("%d\n", x * y);
 		return (0);
 	}
