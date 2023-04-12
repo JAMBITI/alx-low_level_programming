@@ -7,7 +7,7 @@
  * @str: char
  * Return: Always 0
  */
-char *_strdup(char *str);
+char *_strdup(char *str)
 {
 	char *x;
 	int i;
