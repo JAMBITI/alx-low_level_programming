@@ -14,7 +14,7 @@ char *_strdup(char *str)
 	int z = 0;
 
 	if (str == NULL)
-		return (NULL)
+		return (NULL);
 
 	i = 0;
 	while (str[i] != '\0')
@@ -24,7 +24,7 @@ char *_strdup(char *str)
 	if (x == NULL)
 		return (NULL);
 
-	for (z = 0, str[z]; z++)
+	for (z = 0; str[z]; z++)
 	x[z] = str[z];
 	return (x);
 }
