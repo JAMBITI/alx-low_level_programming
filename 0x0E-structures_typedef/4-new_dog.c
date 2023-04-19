@@ -1,52 +1,8 @@
 #include <stdlib.h>
 #include "dog.h"
 
-/**
- *_strlen - gets a lenth of string
- * @str: string
- * Return: lenth of string
- */
-
-int _strlen(char *str)
-{
-	int i;
-
-	i = 0;
-
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-
-	return (i);
-}
-
-/**
- * _strcpy - copies string from string to destination
- * @src: string
- * @dest: destination
- * Return: destin
- */
-
-char *_strcpy(char *dest, char *src)
-{
-	int len, i;
-
-	len = 0;
-
-	while (src[len] != '\0')
-	{
-		len++;
-	}
-
-	for (i = 0; i < len; i++)
-	{
-		dest[i] = src[i];
-	}
-	dest[i] = '\0';
-
-	return (dest);
-}
+int _strlen(char *str);
+char *_strcpy(char *dest, char *src);
 
 /**
   * new_dog - new dog
@@ -87,4 +43,45 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog->age = age;
 
 	return (dog);
+}
+
+
+
+/**
+ *_strlen - gets a lenth of string
+ * @str: string
+ * Return: lenth of string
+ */
+int _strlen(char *str)
+{
+	int c = 0;
+
+	for (; *str != '\0'; str++)
+	{
+		c++;
+	}
+
+	return (c);
+}
+
+
+/**
+ * _strcpy - copies string from string to destination
+ * @src: string
+ * @dest: destination
+ * Return: destin
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	int i;
+
+	for (i = 0; src[i] != '\0'; i++)
+	{
+		dest[i] = src[i];
+	}
+
+	dest[i++] = '\0';
+
+	return (dest);
 }
