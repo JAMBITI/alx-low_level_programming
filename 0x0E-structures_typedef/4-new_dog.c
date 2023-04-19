@@ -1,9 +1,8 @@
 #include <stdlib.h>
 #include "dog.h"
 
-int _strlen(char *str);
+int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
-
 /**
   * new_dog - new dog
   * @name: name of dog
@@ -13,50 +12,57 @@ char *_strcpy(char *dest, char *src);
   * Return: null if function faills
   *
   */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *dog;
-	int len1, len2;
+	dog_t *cutie_dog;
+	int name_l = 0, own_l = 0;
 
-	len1 = _strlen(name);
-	len2 = _strlen(owner);
-
-	dog = malloc(sizeof(dog_t));
-	if (dog == NULL)
-		return (NULL);
-
-	dog->name = malloc(sizeof(char) * (len1 + 1));
-	if (dog->name == NULL)
+	if (name != NULL && owner != NULL)
 	{
-		free(dog);
-		return (NULL);
-	}
-	dog->owner = malloc(sizeof(char) * (len2 + 1));
-	if (dog->owner == NULL)
-	{
-		free(dog);
-		free(dog->name);
-		return (NULL);
-	}
-	_strcpy(dog->name, name);
-	_strcpy(dog->owner, owner);
-	dog->age = age;
+		name_l = _strlen(name) + 1;
+		own_l = _strlen(owner) + 1;
+		cutie_dog = malloc(sizeof(dog_t));
 
-	return (dog);
+		if (cutie_dog == NULL)
+			return (NULL);
+
+		cutie_dog->name = malloc(sizeof(char) * name_l);
+
+		if (cutie_dog->name == NULL)
+		{
+			free(cutie_dog);
+			return (NULL);
+		}
+
+		cutie_dog->owner = malloc(sizeof(char) * own_l);
+
+		if (cutie_dog->owner == NULL)
+		{
+			free(cutie_dog->name);
+			free(cutie_dog);
+			return (NULL);
+		}
+
+		cutie_dog->name = _strcpy(cutie_dog->name, name);
+		cutie_dog->owner = _strcpy(cutie_dog->owner, owner);
+		cutie_dog->age = age;
+	}
+
+	return (cutie_dog);
 }
 
-
-
 /**
- *_strlen - gets a lenth of string
- * @str: string
- * Return: lenth of string
- */
-int _strlen(char *str)
+  * _strlen - Returns the length of a string
+  * @s: String to count
+  *
+  * Return: String length
+  */
+int _strlen(char *s)
 {
 	int c = 0;
 
-	for (; *str != '\0'; str++)
+	for (; *s != '\0'; s++)
 	{
 		c++;
 	}
@@ -64,14 +70,13 @@ int _strlen(char *str)
 	return (c);
 }
 
-
 /**
- * _strcpy - copies string from string to destination
- * @src: string
- * @dest: destination
- * Return: destin
- */
-
+  * _strcpy - Copy a string
+  * @dest: Destination value
+  * @src: Source value
+  *
+  * Return: the pointer to dest
+  */
 char *_strcpy(char *dest, char *src)
 {
 	int i;
