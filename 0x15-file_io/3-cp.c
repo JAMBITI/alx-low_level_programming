@@ -25,13 +25,13 @@ int main(int co, char **ve)
 	if (co != 3)
 		dprintf(STDERR_FILENO, USAGE), exit(97);
 	fr_fd = open(ve[1], O_RDONLY);
-	if (from_fd == -1)
-		dprintf(STDERR_FILENO, ERR_NOREAD, ve[1]), exit(98);
+	if (fr_fd == -1)
+		dprintf(STDERR_FILENO, ER_NOREAD, ve[1]), exit(98);
 	to_fd = open(ve[2], O_WRONLY | O_CREAT | O_TRUNC, PERMISSIONS);
 	if (to_fd == -1)
 		dprintf(STDERR_FILENO, ER_NOWRITE, ve[2]), exit(99);
 
-	while ((z = read(from_fd, buf, READ_BUF_SIZE)) > 0)
+	while ((z = read(fr_fd, buf, READ_BUF_SIZE)) > 0)
 		if (write(to_fd, buf, z) != z)
 			dprintf(STDERR_FILENO, ER_NOWRITE, ve[2]), exit(99);
 	if (z == -1)
