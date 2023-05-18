@@ -18,8 +18,8 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	while (z)
 	{
 		if (z & 1ul)
-			count++;
+			a++;
 		z = z >> 1;
 	}
-	return (count);
+	return (a);
 }
