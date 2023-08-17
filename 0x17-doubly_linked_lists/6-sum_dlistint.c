@@ -6,11 +6,12 @@
  * @head: Pointer to the head of the linked list.
  * Return: The calculated sum or 0 if the list is empty.
  */
+
 int sum_dlistint(dlistint_t *head)
 {
-	int totalSum;
+	int sum;
 
-	for (totalSum = 0; head; head = head->next)
-		totalSum += head->n;
-	return (totalSum);
+	for (sum = 0; head; head = head->next)
+		sum += head->n;
+	return (sum);
 }
