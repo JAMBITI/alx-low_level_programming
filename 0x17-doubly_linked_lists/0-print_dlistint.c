@@ -12,5 +12,5 @@ size_t count = 0;
 for (; h != NULL; h = h->next, count++)
 printf("%d\n", h->n);
 
-return count;
+return (count);
 }
