@@ -164,3 +164,20 @@ node = next_node;
 free(ht->array);
 free(ht);
 }
+/**
+ * free_slist - frees list
+ * @array: list
+ */
+void free_slist(shash_node_t *array)
+{
+	shash_node_t *head = array;
+
+	while (array)
+	{
+		head = array;
+		free(array->key);
+		free(array->value);
+		free(head);
+		array = array->next;
+	}
+}
