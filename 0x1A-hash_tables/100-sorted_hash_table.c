@@ -7,17 +7,18 @@
  */
 hash_table_t *hash_table_create(unsigned long int size)
 {
-	hash_table_t *nv_table;
+	hash_table_t *new_table;
 
-	nv_table = malloc(sizeof(hash_table_t));
-	if (!nv_table)
+	new_table = malloc(sizeof(hash_table_t));
+	if (!new_table)
 		return (NULL);
-	nv_table->size = size;
-	nv_table->array = malloc(sizeof(hash_node_t *) * size);
-	if (!nv_table->array)
+	new_table->size = size;
+	new_table->array = malloc(sizeof(hash_node_t *) * size);
+	if (!new_table->array)
 		return (NULL);
-	return (nv_table);
+	return (new_table);
 }
+
 /**
  * hash_table_set - Adds or updates an element in the hash table.
  * @ht: The hash table to add/update the key/value pair.
